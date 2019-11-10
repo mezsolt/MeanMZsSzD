@@ -1,0 +1,111 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: black;
+//$padding: 50px;
+$backgroundImagePosition: center;
+$backgroundImageRepeat: repeat;
+$backgroundImageSize: cover;
+$backgroundColor : yellow;
+
+//node-sass public/scss/testSCSS.scss -o public/css/bootstrap
+
+html {
+  background : #4e555b;
+}
+body {
+  font: 100% $font-stack,bold,italic;
+  color: $primary-color;
+
+  background : #4e555b;
+}
+#page {
+  background: linear-gradient(45deg, rgba(236, 249, 246, 0.46), rgba(56, 59, 57, 0.92) 100%);
+
+}
+
+#warningID {
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+#contactID {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.jumbotron {
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+.card {
+  margin: 0 auto;
+  max-width: 50%;
+}
+
+#welcomeID {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+#wrongEmailID {
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+#wrongEmailNewStatID {
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+#dataFormId {
+  //background-color: #ffad00;
+  width: 50%;
+  //max-width: 1000px;
+  margin:0 auto;
+  //padding: 32px auto;
+}
+
+
+select {
+  appearance: none;
+  display: none;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+#formEmailId {
+  //background-color: #00ffc7;
+  max-width: 500px;
+  margin:0 auto;
+}
+
+#formNewStatId {
+  //background-color: #00ff24;
+  max-width: 500px;
+  margin:0 auto;
+}
+
+.nav {
+  margin:0 auto;
+}
+.navbar-nav {
+  //background-color: #ff000a;
+}
+
+a {
+  margin:0 auto;
+}
+
+#navbtn1, #navbtn2 {
+  margin:0 auto;
+}

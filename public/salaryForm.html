@@ -1,0 +1,135 @@
+<br>
+<div ng-controller="dataController as ctrl">
+    <div class="jumbotron text-center" ng-show="formMessage === true">
+        <p class="lead text-muted">Complete the form and you will receive your statistic in an email.</p>
+        <hr class="my-4">
+    </div>
+    <br>
+    <div id="dataFormId" >
+        <form id="dataForm" name="dataForm" class="form-control" ng-show="formEnabled === true"> <!--ng-submit="$event.preventDefault()"-->
+            <md-content layout-gt-sm="row" layout-padding>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Sex</label>
+                    <md-select ng-model="sex" required>
+                        <md-option value="male">Male</md-option>
+                        <md-option value="female">Female</md-option>
+                    </md-select>
+                </md-input-container>
+                <br><br><br>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Age</label>
+                    <md-select ng-model="age" required>
+                        <md-option value="18-25">18-25</md-option>
+                        <md-option value="26-35">26-35</md-option>
+                        <md-option value="36-45">36-45</md-option>
+                        <md-option value="46-55">46-55</md-option>
+                        <md-option value="56-65">56-65</md-option>
+                    </md-select>
+                </md-input-container>
+            </md-content>
+            <md-content layout-gt-sm="row" layout-padding>
+                <md-input-container class="md-block"  flex-gt-sm>
+                    <label>Country</label>
+                    <md-select ng-model="country" ng-change="getCities()" required>
+                        <md-option ng-repeat="country in countries" value="{{country}}">
+                            {{country}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <br><br><br>
+                <md-input-container class="md-block" flex-gt-sm >
+                    <md-tooltip ng-show="cityTooltip" md-z-index="100" md-direction="top">Please select a country first!</md-tooltip>
+                    <label>City</label>
+                    <md-select ng-model="city" ng-disabled="cityEnabled === false" required>
+                        <md-option ng-repeat="city in cities" value="{{city}}">
+                            {{city}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+            </md-content>
+            <md-content layout-gt-sm="row" layout-padding>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Educational attainment</label>
+                    <md-select ng-model="educationalAttainment" required>
+                        <md-option value="elementarySchool">Elementary school</md-option>
+                        <md-option value="middleSchool">Middle school</md-option>
+                        <md-option value="highSchool">High school</md-option>
+                        <md-option value="college">College</md-option>
+                        <md-option value="universityBsc">University BSc</md-option>
+                        <md-option value="universityMsc">University MSc</md-option>
+                        <md-option value="universityPhd">University PhD</md-option>
+                    </md-select>
+                </md-input-container>
+                <br><br><br>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Experience</label>
+                    <md-select ng-model="experience" required>
+                        <md-option value="0-1">0-1 year</md-option>
+                        <md-option value="2-4 years">2-4 years</md-option>
+                        <md-option value="5-10 years">5-10 years</md-option>
+                        <md-option value="10+ years">10+ years</md-option>
+                    </md-select>
+                </md-input-container>
+            </md-content>
+            <md-content layout-padding><!--layout-gt-sm="row"-->
+                <md-autocomplete class="md-block" flex-gt-sm
+                                 ng-disabled="ctrl.isDisabledOccupation"
+                                 md-no-cache="ctrl.noCache"
+                                 md-selected-item="ctrl.selectedItemOccupation"
+                                 md-search-text-change="ctrl.searchTextChangeOccupation(ctrl.searchTextOccupation)"
+                                 md-search-text="ctrl.searchTextOccupation"
+                                 md-selected-item-change="ctrl.selectedItemChangeOccupation(item)"
+                                 md-items="item in ctrl.querySearchOccupation(ctrl.searchTextOccupation)"
+                                 md-item-text="item.display"
+                                 md-min-length="0"
+                                 md-floating-label="Occupation"
+                                 placeholder="Occupation"
+                                 md-clear-button="true" required>
+                    <md-item-template>
+                        <span md-highlight-text="ctrl.searchTextOccupation" md-highlight-flags="^i">{{item.display}}</span>
+                    </md-item-template>
+                </md-autocomplete>
+                <div>
+                    <md-tooltip ng-show="roleTooltip" md-z-index="100" md-direction="top">Please select an occupation first!</md-tooltip>
+                    <md-autocomplete class="md-block" flex-gt-sm
+                                     ng-disabled="ctrl.isDisabledRole"
+                                     md-no-cache="ctrl.noCache"
+                                     md-selected-item="ctrl.selectedItemRole"
+                                     md-search-text-change="ctrl.searchTextChangeRole(ctrl.searchTextRole)"
+                                     md-search-text="ctrl.searchTextRole"
+                                     md-selected-item-change="ctrl.selectedItemChangeRole(item)"
+                                     md-items="item in ctrl.querySearchRole(ctrl.searchTextRole)"
+                                     md-item-text="item.display"
+                                     md-min-length="0"
+                                     md-floating-label="Role"
+                                     md-clear-button="true" required>
+                        <md-item-template >
+                            <span md-highlight-text="ctrl.searchTextRole" md-highlight-flags="^i" >{{item.display}}</span>
+                        </md-item-template>
+                    </md-autocomplete>
+                </div>
+            </md-content>
+            <md-input-container class="md-block">
+                <label>Gross monthly salary (€)</label>
+                <input required id="salary" ng-model="salary" type="number"  min="300" max="5000" step="1">
+                <div ng-messages = "dataForm.salary.$error">
+                    <div ng-message = "required">This is required.</div>
+                </div>
+            </md-input-container>
+            <div class="text-right">
+                <button id="sendDataBtn" type="button" class="btn-secondary" ng-click="sendDataToDB()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div ng-show="message" class="jumbotron text-center">
+        <p class="lead text-muted">Thank you for your participation. The statistics has been sent to your email address.</p>
+        <hr class="my-4">
+    </div>
+    <div id="warningID">
+        <div ng-show="warning" class="alert alert-danger text-center">
+            <strong>Please fill everything on the form.</strong>
+        </div>
+    </div>
+    <br>
+</div>

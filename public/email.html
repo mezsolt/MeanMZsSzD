@@ -1,0 +1,60 @@
+<br>
+<div class="jumbotron text-center">
+<h1 class="jumbotron-heading">Welcome to the Average Salary Statistics website.</h1>
+    <hr class="my-4">
+    <p class="lead text-muted">You can learn salary statistics about your job.</p>
+<p class="lead text-muted">Type in your email address and you will receive an email with a link to the form.</p>
+    <p class="lead text-muted">If you wish to change the data you have been given earlier, use your same email address that you used before.</p>
+    <p class="lead text-muted">You can only change your data after 30 days.</p>
+</div>
+<br>
+<div class="card bg-info text-white">
+<div class="card-body text-center">Type in your email address here if you are using the site for the first time or wish to change your details:</div>
+</div>
+<br>
+<div id="formEmailId">
+    <form id="form" name="form" class="form-control">
+        <md-input-container class = "md-block">
+            <label>Email</label>
+            <input required type="text" id="email" name="email"  class="form-control" ng-model="email" >
+            <div ng-messages = "form.email.$error">
+                <div ng-message = "required">This is required.</div>
+            </div>
+        </md-input-container>
+        <div class="text-right">
+            <button id="formBtn" type="button" class="btn-secondary" ng-click="sendEmail()">Submit</button>
+        </div>
+    </form>
+</div>
+<br>
+<div id="wrongEmailID">
+    <div ng-show="emailWarning" class="alert alert-danger text-center">
+        <strong>Please type in your correct email address.</strong>
+    </div>
+</div>
+<br>
+<div class="card bg-info text-white">
+    <div class="card-body text-center">If you already completed the form once and do not wish to change your details, type your email address here:</div>
+</div>
+<br>
+<div id="formNewStatId">
+        <form id="formNewStat" name="formNewStat" class="form-control">
+        <md-input-container class = "md-block">
+            <label>Email</label>
+            <input required type="text" id="emailNewStat" name="emailNewStat"  class="form-control" ng-model="emailNewStat" >
+            <div ng-messages = "form.emailNewStat.$error">
+                <div ng-message = "required">This is required.</div>
+            </div>
+        </md-input-container>
+        <div class="text-right">
+            <button id="formBtnNewStat" type="button" class="btn-secondary" ng-click="sendNewStat()">Submit</button>
+        </div>
+    </form>
+</div>
+<br>
+<div id="wrongEmailNewStatID">
+    <div ng-show="emailWarningNewStat" class="alert alert-danger text-center">
+        <strong>Please type in your correct email address.</strong>
+    </div>
+    <br>
+</div>

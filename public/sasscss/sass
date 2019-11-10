@@ -1,0 +1,7 @@
+body {
+  padding: 50px;
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+/*# sourceMappingURL=sass.map */
