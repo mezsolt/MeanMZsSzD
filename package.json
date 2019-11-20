@@ -13,7 +13,7 @@
   "dependencies": {
     "@angular/cdk": "^6.3.3",
     "@angular/material": "^6.3.3",
-    "angular": "^1.7.2",
+    "angular": "^1.7.9",
     "angular-animate": "^1.7.2",
     "angular-aria": "^1.7.2",
     "angular-cookies": "^1.7.2",
