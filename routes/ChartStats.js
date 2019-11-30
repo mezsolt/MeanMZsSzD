@@ -1007,7 +1007,7 @@ async function emailDataSend(html,emailId,emailToSend,data) {
     var mailOptions = {
         from: 'mezsolt90test@gmail.com', // sender address
         to: emailToSend, // list of receivers
-        subject: 'nemzsolti vagyok', // Subject line
+        subject: 'Average Salary Statistics', // Subject line
         text: 'We send you the statistics in the attachment. Thank you for using the service! ID: ' + emailId + '.', // plain text body
         attachments: [{
             filename: 'statistic-'+emailId+'.html',
@@ -1020,7 +1020,7 @@ async function emailDataSend(html,emailId,emailToSend,data) {
         mailOptions = {
             from: 'mezsolt90test@gmail.com', // sender address
             to: emailToSend, // list of receivers
-            subject: 'nemzsolti vagyok', // Subject line
+            subject: 'Average Salary Statistics', // Subject line
             text: 'Sorry but there is not enough data in the database with your job to make a viable statistics, please try again later!', // plain text body
         };
     }
@@ -1029,7 +1029,7 @@ async function emailDataSend(html,emailId,emailToSend,data) {
         mailOptions = {
             from: 'mezsolt90test@gmail.com', // sender address
             to: emailToSend, // list of receivers
-            subject: 'nemzsolti vagyok', // Subject line
+            subject: 'Average Salary Statistics', // Subject line
             text: 'You cannot use this function if you havent used your email address to give your job details before, use the first email form on the website to give your job details and receive your statistic!', // plain text body
         };
     }

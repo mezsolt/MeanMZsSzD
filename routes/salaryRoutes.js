@@ -113,7 +113,7 @@ router.post('/data',async function (req, res, next) {
 
                     var html;
                     html = await ChartStats.statsFuncStart(data);
-                    ChartStats.emailDataSend(html, data.emailId, data.emailToSend);
+                    ChartStats.emailDataSend(html, data.emailId, data.emailToSend,data);
 
                     DataSchema.create({
                         _id: new mongoose.Types.ObjectId(),
@@ -247,7 +247,7 @@ router.post('/email', async function (req, res) {
                             let mailOptions = {
                                 from: 'mezsolt90test@gmail.com', // sender address
                                 to: req.body.email, // list of receivers
-                                subject: 'nemzsolti vagyok', // Subject line
+                                subject: 'Average Salary Statistics', // Subject line
                                 text: 'nemzsolti vagyok a szomszedbol', // plain text body
                                 html: '<b>Average salary statistics, click on the link and complete the form to receive your statistic!</b><br><a href="http://localhost:3000/form?userId='+idToSend+'&emailToSend='+req.body.email+'">Link to Form</a>' // html body
                             };
@@ -292,7 +292,7 @@ router.post('/email', async function (req, res) {
                     let mailOptions = {
                         from: 'mezsolt90test@gmail.com', // sender address
                         to: req.body.email, // list of receivers
-                        subject: 'nemzsolti vagyok', // Subject line
+                        subject: 'Average Salary Statistics', // Subject line
                         text: 'nemzsolti vagyok a szomszedbol', // plain text body
                         html: messageInAlreadyExistsEmail // html body
                     };
@@ -372,97 +372,102 @@ router.get('/dbtestdata',async function(req,res){
     var country = 'Japan';
     var city = 'Tokyo';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Japan';
     var city = 'Kyoto';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Hungary';
     var city = 'Ozd';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Hungary';
     var city = 'Miskolc';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Albania';
     var city = 'Petran';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Albania';
     var city = 'Pogradec';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'United States';
     var city = 'New York';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'United States';
     var city = 'Detroyt';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Germany';
     var city = 'Frankfurt';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Germany';
     var city = 'Berlin';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Russia';
     var city = 'Moscow';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Russia';
     var city = 'Abakan';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Mexico';
     var city = 'Abasolo';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Mexico';
     var city = 'Acambaro';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Algeria';
     var city = 'Acambaro';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Algeria';
     var city = 'Algiers';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Australia';
     var city = 'Abbotsford';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     var country = 'Australia';
     var city = 'Aberdeen';
 
-    dbDataTestInsert(country,city,Math.round(Math.random() * 1500) + 300);
+    dbDataTestInsert(country,city);
 
     console.log('Dummy test data added.')
 });
 
-function dbDataTestInsert(country, city,salary) {
+function dbDataTestInsert(country, city) {
+
+    var salary = Math.round(Math.random() * 1500) + 300;
+
+    salary = Math.round(Math.random() * 1500) + 300;
+
     var data = {_id:"5c853649d2aa31312877c697",
         sex:"male",
         age:"26-35",
@@ -479,6 +484,9 @@ function dbDataTestInsert(country, city,salary) {
         emailId:"das987dasdasö9",
         __v:0
     }
+
+    salary = Math.round(Math.random() * 1500) + 300;
+
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
         sex : 'male',
@@ -496,6 +504,8 @@ function dbDataTestInsert(country, city,salary) {
         emailId: data.emailId
     });
 
+    salary = Math.round(Math.random() * 1500) + 300;
+
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
         sex : 'female',
@@ -513,6 +523,8 @@ function dbDataTestInsert(country, city,salary) {
         emailId: data.emailId
     });
 
+    salary = Math.round(Math.random() * 1500) + 300;
+
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
         sex : 'female',
@@ -529,6 +541,8 @@ function dbDataTestInsert(country, city,salary) {
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -539,13 +553,15 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: 'elementarySchool',
         experience: '2-4 years',
         occupation: data.occupation,
-        role: data.role,
+        role: "Labor Relations Specialist",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -556,13 +572,15 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: 'highSchool',
         experience: '2-4 years',
         occupation: data.occupation,
-        role: data.role,
+        role: "Range Manager",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -573,13 +591,15 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: 'universityBsc',
         experience: '5-10 years',
         occupation: data.occupation,
-        role: data.role,
+        role: "Range Manager",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -590,7 +610,7 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: 'universityBsc',
         experience: '5-10 years',
         occupation: data.occupation,
-        role: data.role,
+        role: "Range Manager",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
@@ -598,9 +618,30 @@ function dbDataTestInsert(country, city,salary) {
         emailId: data.emailId
     });
 
+    salary = Math.round(Math.random() * 1500) + 300;
+
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
         sex : 'female',
+        age: '56-65',
+        country: country,
+        city: city,
+        educationalAttainment: 'universityPhd',
+        experience: '10+ years',
+        occupation: data.occupation,
+        role: "Range Manager",
+        code: data.code,
+        majorGroup: data.majorGroup,
+        salary: salary,
+        date: Date.now(),
+        emailId: data.emailId
+    });
+
+    salary = Math.round(Math.random() * 1500) + 300;
+
+    DataSchema.create({
+        _id : new mongoose.Types.ObjectId(),
+        sex : 'male',
         age: '56-65',
         country: country,
         city: city,
@@ -615,22 +656,7 @@ function dbDataTestInsert(country, city,salary) {
         emailId: data.emailId
     });
 
-    DataSchema.create({
-        _id : new mongoose.Types.ObjectId(),
-        sex : 'male',
-        age: '56-65',
-        country: country,
-        city: city,
-        educationalAttainment: 'universityPhd',
-        experience: '10+ years',
-        occupation: data.occupation,
-        role: data.role,
-        code: data.code,
-        majorGroup: data.majorGroup,
-        salary: salary,
-        date: Date.now(),
-        emailId: data.emailId
-    });
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -641,13 +667,16 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: data.educationalAttainment,
         experience: data.experience,
         occupation: data.occupation,
-        role: data.role,
+        role: "Range Manager",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
+
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
         sex : data.sex,
@@ -657,13 +686,15 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: data.educationalAttainment,
         experience: data.experience,
         occupation: data.occupation,
-        role: data.role,
+        role: "Labor Relations Specialist",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -674,13 +705,15 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: 'universityMsc',
         experience: '2-4 years',
         occupation: data.occupation,
-        role: data.role,
+        role: "Labor Relations Specialist",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
         date: Date.now(),
         emailId: data.emailId
     });
+
+    salary = Math.round(Math.random() * 1500) + 300;
 
     DataSchema.create({
         _id : new mongoose.Types.ObjectId(),
@@ -691,7 +724,7 @@ function dbDataTestInsert(country, city,salary) {
         educationalAttainment: "college",
         experience: data.experience,
         occupation: data.occupation,
-        role: data.role,
+        role: "Labor Relations Specialist",
         code: data.code,
         majorGroup: data.majorGroup,
         salary: salary,
