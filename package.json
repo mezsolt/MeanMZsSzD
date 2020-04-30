@@ -50,7 +50,7 @@
     "json-parser": "^1.1.5",
     "librsvg-prebuilt": "^0.7.8",
     "md5": "^2.2.1",
-    "mongoose": "^5.2.1",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.0",
     "node-base64-image": "^1.0.5",
     "node-sass": "^4.12.0",
