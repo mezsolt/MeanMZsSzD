@@ -57,7 +57,7 @@
     "nodemailer": "^4.6.7",
     "nodemon": "^1.17.5",
     "pdfkit": "^0.8.3",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "request": "^2.88.0",
     "reverse-md5": "0.0.4",
     "serve-favicon": "^2.5.0",
