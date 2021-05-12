@@ -26,7 +26,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "^4.1.1",
     "bowserify": "^10.2.1",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "convert-svg-to-jpeg": "^0.5.0",
     "cookie-parser": "~1.4.3",
     "cookie-session": "^2.0.0-beta.3",
