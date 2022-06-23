@@ -46,7 +46,7 @@
     "jasmine": "^3.1.0",
     "jasmine-node": "^1.15.0",
     "jquery": "^3.3.1",
-    "jsdom": "^11.11.0",
+    "jsdom": "^16.5.0",
     "json-parser": "^1.1.5",
     "librsvg-prebuilt": "^0.7.8",
     "md5": "^2.2.1",
